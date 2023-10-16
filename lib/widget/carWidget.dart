@@ -11,16 +11,15 @@ class CarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      color: const Color.fromRGBO(255, 154, 204, 1);
+      color: const Color.fromRGBO(255, 154, 204, 1),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
       child: ListTile(
         isThreeLine: true,
-        title: Text(car.car , ${car.model}, ${car.color}),
+        title: Text("${car.car}, ${car.model}, color: ${car.color}"),
         subtitle: Text("price: ${car.price}"),
-
-        trailing: Column(
+        trailing: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Icon(Icons.arrow_forward),
@@ -29,8 +28,8 @@ class CarWidget extends StatelessWidget {
         leading: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Icon(Icons.heart, size: 30, color: Colors.black),
-            SizedBox(height:10),
+            Icon(Icons.circle, size: 10, color: Colors.black),
+            SizedBox(height: 10),
             Text(index.toString()),
           ],
         ),
