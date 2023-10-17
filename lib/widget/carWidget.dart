@@ -18,10 +18,16 @@ class CarWidget extends StatelessWidget {
       child: ListTile(
         title: Text("${car.car}, ${car.model}, color: ${car.color}"),
         subtitle: Text("price: ${car.price}"),
-        trailing: const Column(
+        trailing: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(Icons.arrow_forward),
+          children:  [
+            
+            if (car.availability)
+              const Icon(Icons.check_circle_outline,
+                  size: 40, color: Colors.black)
+            else
+              const Icon(Icons.do_not_disturb_alt, size: 40, color: Colors.black),
+
           ],
         ),
         leading: Column(
