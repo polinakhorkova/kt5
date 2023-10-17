@@ -23,10 +23,10 @@ class CarWidget extends StatelessWidget {
           children:  [
             
             if (car.availability)
-              const Icon(Icons.check_circle_outline,
-                  size: 40, color: Colors.black)
+              const Icon(Icons.star,
+                  size: 40, color: Colors.green, )
             else
-              const Icon(Icons.do_not_disturb_alt, size: 40, color: Colors.black),
+              const Icon(Icons.star, size: 40, color: Colors.red),
 
           ],
         ),
