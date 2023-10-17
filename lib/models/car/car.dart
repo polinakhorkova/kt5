@@ -27,6 +27,7 @@ class Car with _$Car {
     @JsonKey(name: 'car_color') required String color,
     @JsonKey(name: 'car_model_year') required int year,
     @CarPriceConventer() required double price,
+    required bool availability,
   }) = _Car;
 
   factory Car.fromJson(Map<String, dynamic> json) => _$CarFromJson(json);

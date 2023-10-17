@@ -30,6 +30,7 @@ mixin _$Car {
   int get year => throw _privateConstructorUsedError;
   @CarPriceConventer()
   double get price => throw _privateConstructorUsedError;
+  bool get availability => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +48,8 @@ abstract class $CarCopyWith<$Res> {
       @JsonKey(name: 'car_model') String model,
       @JsonKey(name: 'car_color') String color,
       @JsonKey(name: 'car_model_year') int year,
-      @CarPriceConventer() double price});
+      @CarPriceConventer() double price,
+      bool availability});
 }
 
 /// @nodoc
@@ -68,6 +70,7 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
     Object? color = null,
     Object? year = null,
     Object? price = null,
+    Object? availability = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -94,6 +97,10 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      availability: null == availability
+          ? _value.availability
+          : availability // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -110,7 +117,8 @@ abstract class _$$CarImplCopyWith<$Res> implements $CarCopyWith<$Res> {
       @JsonKey(name: 'car_model') String model,
       @JsonKey(name: 'car_color') String color,
       @JsonKey(name: 'car_model_year') int year,
-      @CarPriceConventer() double price});
+      @CarPriceConventer() double price,
+      bool availability});
 }
 
 /// @nodoc
@@ -128,6 +136,7 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
     Object? color = null,
     Object? year = null,
     Object? price = null,
+    Object? availability = null,
   }) {
     return _then(_$CarImpl(
       id: null == id
@@ -154,6 +163,10 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      availability: null == availability
+          ? _value.availability
+          : availability // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -167,7 +180,8 @@ class _$CarImpl implements _Car {
       @JsonKey(name: 'car_model') required this.model,
       @JsonKey(name: 'car_color') required this.color,
       @JsonKey(name: 'car_model_year') required this.year,
-      @CarPriceConventer() required this.price});
+      @CarPriceConventer() required this.price,
+      required this.availability});
 
   factory _$CarImpl.fromJson(Map<String, dynamic> json) =>
       _$$CarImplFromJson(json);
@@ -188,10 +202,12 @@ class _$CarImpl implements _Car {
   @override
   @CarPriceConventer()
   final double price;
+  @override
+  final bool availability;
 
   @override
   String toString() {
-    return 'Car(id: $id, car: $car, model: $model, color: $color, year: $year, price: $price)';
+    return 'Car(id: $id, car: $car, model: $model, color: $color, year: $year, price: $price, availability: $availability)';
   }
 
   @override
@@ -204,13 +220,15 @@ class _$CarImpl implements _Car {
             (identical(other.model, model) || other.model == model) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.year, year) || other.year == year) &&
-            (identical(other.price, price) || other.price == price));
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.availability, availability) ||
+                other.availability == availability));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, car, model, color, year, price);
+  int get hashCode => Object.hash(
+      runtimeType, id, car, model, color, year, price, availability);
 
   @JsonKey(ignore: true)
   @override
@@ -233,7 +251,8 @@ abstract class _Car implements Car {
       @JsonKey(name: 'car_model') required final String model,
       @JsonKey(name: 'car_color') required final String color,
       @JsonKey(name: 'car_model_year') required final int year,
-      @CarPriceConventer() required final double price}) = _$CarImpl;
+      @CarPriceConventer() required final double price,
+      required final bool availability}) = _$CarImpl;
 
   factory _Car.fromJson(Map<String, dynamic> json) = _$CarImpl.fromJson;
 
@@ -253,6 +272,8 @@ abstract class _Car implements Car {
   @override
   @CarPriceConventer()
   double get price;
+  @override
+  bool get availability;
   @override
   @JsonKey(ignore: true)
   _$$CarImplCopyWith<_$CarImpl> get copyWith =>

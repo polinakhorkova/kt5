@@ -13,6 +13,7 @@ _$CarImpl _$$CarImplFromJson(Map<String, dynamic> json) => _$CarImpl(
       color: json['car_color'] as String,
       year: json['car_model_year'] as int,
       price: const CarPriceConventer().fromJson(json['price']),
+      availability: json['availability'] as bool,
     );
 
 Map<String, dynamic> _$$CarImplToJson(_$CarImpl instance) => <String, dynamic>{
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$CarImplToJson(_$CarImpl instance) => <String, dynamic>{
       'car_color': instance.color,
       'car_model_year': instance.year,
       'price': const CarPriceConventer().toJson(instance.price),
+      'availability': instance.availability,
     };
