@@ -16,20 +16,12 @@ class CarWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: ListTile(
-        isThreeLine: true,
         title: Text("${car.car}, ${car.model}, color: ${car.color}"),
         subtitle: Text("price: ${car.price}"),
-        trailing:  Column(
+        trailing: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-             if (car.availability)
-              const Icon(Icons.check_circle_outline,
-                  size: 40, color: Colors.black)
-            else
-              const Icon(Icons.do_not_disturb_alt, size: 40, color: Colors.black),
-             
-
-             
+          children: const [
+            Icon(Icons.arrow_forward),
           ],
         ),
         leading: Column(
@@ -39,7 +31,6 @@ class CarWidget extends StatelessWidget {
             Text(index.toString()),
           ],
         ),
-       
       ),
     );
   }

@@ -22,18 +22,35 @@ class _HomePageState extends State<HomePage> {
     print(ListCar);
     setState(() {});
   }
-@override
+
+  @override
   void initState() {
     super.initState();
-   
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(itemCount: ListCar.length, itemBuilder:(context, index) {
-      return CarWidget(car: ListCar[index], index: index + 1);   
-      },),
+      body: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 15,
+              ),
+              ListView.builder(
+                primary: false,
+                shrinkWrap: true,
+                itemCount: ListCar.length,
+                itemBuilder: (context, index) {
+                  return CarWidget(car: ListCar[index], index: index + 1);
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
