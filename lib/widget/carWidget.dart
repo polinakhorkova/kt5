@@ -33,7 +33,7 @@ class CarWidget extends StatelessWidget {
         leading: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SizedBox(height: 10),
+            
             Text(index.toString()),
           ],
         ),
