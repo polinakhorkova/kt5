@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   String url = 'https://myfakeapi.com/api/cars/';
   List<Car> ListCar = [];
 
-  void lGetCar() async {
+  void getNetworkData() async {
     Response response = await client.get(url);
     ListCar = Carsdata.fromJson(response.data).cars;
     print(ListCar);
@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    getNetworkData();
     super.initState();
   }
 
@@ -36,9 +37,6 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: 15,
-              ),
               ListView.builder(
                 primary: false,
                 shrinkWrap: true,
